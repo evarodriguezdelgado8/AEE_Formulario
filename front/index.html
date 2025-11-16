@@ -1,12 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <!-- Bootstrap CSS desde CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+    <title>Registro de Evento</title>
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5 p-4 bg-white shadow rounded">
+        <h1 class="text-center mb-4">Registro de Asistentes al Evento</h1>
+
+        <!-- Formulario principal -->
+        <form action="../back/procesar_evento.php" method="POST" enctype="multipart/form-data">
+
+            <!-- Información personal -->
+            <h3>Información Personal</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nombre Completo</label>
+                    <input type="text" name="nombre" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Correo Electrónico</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" name="telefono" class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" name="nacimiento" class="form-control" required>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="form-label">Género</label><br>
+                    <input type="radio" name="genero" value="Masculino"> Masculino
+                    <input type="radio" name="genero" value="Femenino" class="ms-3"> Femenino
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Información del Evento -->
+            <h3>Información del Evento</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Fecha del Evento</label>
+                    <input type="date" name="fecha_evento" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Tipo de Entrada</label>
+                    <select name="entrada" class="form-select">
+                        <option value="General">General</option>
+                        <option value="VIP">VIP</option>
+                        <option value="Estudiante">Estudiante</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">Preferencias de Comida</label><br>
+                    <input type="checkbox" name="comida[]" value="Vegetariano"> Vegetariano
+                    <input type="checkbox" name="comida[]" value="Vegano" class="ms-3"> Vegano
+                    <input type="checkbox" name="comida[]" value="Sin gluten" class="ms-3"> Sin gluten
+                    <input type="checkbox" name="comida[]" value="Sin preferencias" class="ms-3"> Sin preferencias
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Acceso -->
+            <h3>Información de Acceso</h3>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">Usuario</label>
+                    <input type="text" name="usuario" class="form-control" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Confirmar Contraseña</label>
+                    <input type="password" name="password2" class="form-control" required>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Preferencias -->
+            <h3>Preferencias</h3>
+            <div class="form-check">
+                <input type="checkbox" name="notificaciones" class="form-check-input" id="notif">
+                <label for="notif" class="form-check-label">Deseo recibir notificaciones por email</label>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" name="terminos" class="form-check-input" required>
+                <label class="form-check-label">Acepto términos y condiciones</label>
+            </div>
+
+            <hr>
+
+            <!-- Encuesta -->
+            <h3>Encuesta Adicional</h3>
+            <label>Calificación de Eventos Anteriores (1 a 10)</label>
+            <input type="range" name="calificacion" min="1" max="10" class="form-range">
+
+            <label class="form-label mt-3">Comentarios:</label>
+            <textarea name="comentarios" class="form-control" rows="4"></textarea>
+
+            <br>
+
+            <div>
+                <label class="form-label mt-3">Adjuntar Archivo</label>
+                <input type="file" name="archivo" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4 w-100">Enviar Registro</button>
+        </form>
+    </div>
 </body>
+
+</html>
