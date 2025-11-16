@@ -22,7 +22,7 @@ document.getElementById("form-evento").addEventListener("submit", async function
     comentarios: document.getElementById("comentarios").value
   };
 
-  const response = await fetch("api_evento.php", {
+  const response = await fetch("../back/api_evento.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(datos)

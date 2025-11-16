@@ -100,7 +100,7 @@ if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === 0) {
         </div>
 
         <!-- Botón para volver al formulario -->
-        <a href="index.html" class="btn btn-secondary mt-2">Volver al formulario</a>
+        <a href="../front/index.html" class="btn btn-secondary mt-2">Volver al formulario</a>
 
     <?php else: ?>
 
@@ -152,7 +152,7 @@ if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === 0) {
             <li><strong>Archivo subido:</strong> <?= htmlspecialchars($nombreArchivo) ?></li>
         </ul>
 
-        <a href="index.html" class="btn btn-primary mt-3">Volver</a>
+        <a href="../front/index.html" class="btn btn-primary mt-3">Volver</a>
 
     <?php endif; ?>
 
