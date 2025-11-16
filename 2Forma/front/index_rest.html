@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro Evento REST</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body class="bg-light">
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Registro de Asistentes</h1>
+
+  <form id="form-evento" enctype="multipart/form-data">
+
+    <h3>Información Personal</h3>
+    <div class="mb-3">
+      <label class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Correo electrónico</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Teléfono</label>
+      <input type="tel" class="form-control" id="telefono">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Fecha de nacimiento</label>
+      <input type="date" class="form-control" id="nacimiento" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Género</label><br>
+      <input type="radio" name="genero" value="Masculino"> Masculino
+      <input type="radio" name="genero" value="Femenino"> Femenino
+    </div>
+
+    <h3>Información del Evento</h3>
+    <div class="mb-3">
+      <label class="form-label">Fecha del evento</label>
+      <input type="date" class="form-control" id="fechaEvento" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tipo de entrada</label>
+      <select class="form-select" id="entrada">
+        <option>General</option>
+        <option>VIP</option>
+        <option>Estudiante</option>
+      </select>
+    </div>
+
+    <label class="form-label">Preferencias de comida</label><br>
+    <input type="checkbox" name="comida" value="Vegetariano"> Vegetariano
+    <input type="checkbox" name="comida" value="Vegano"> Vegano
+    <input type="checkbox" name="comida" value="Sin gluten"> Sin gluten
+    <input type="checkbox" name="comida" value="Sin preferencias"> Sin preferencias
+
+    <h3 class="mt-3">Información de acceso</h3>
+    <input type="text" class="form-control mb-2" id="usuario" placeholder="Nombre de usuario" required>
+    <input type="password" class="form-control mb-2" id="pass" placeholder="Contraseña" required>
+    <input type="password" class="form-control mb-2" id="pass2" placeholder="Confirmación" required>
+
+    <h3>Preferencias de contacto</h3>
+    <input type="checkbox" id="notificaciones"> Recibir notificaciones<br>
+    <input type="checkbox" id="terminos" required> Acepto términos y condiciones
+
+    <h3 class="mt-3">Encuesta adicional</h3>
+    <label>Calificación eventos anteriores: </label>
+    <input type="range" id="calificacion" min="1" max="10" class="form-range">
+    <textarea id="comentarios" class="form-control mt-3" placeholder="Comentarios adicionales"></textarea>
+
+    <h3 class="mt-3">Adjuntar archivo</h3>
+    <input type="file" id="archivo" class="form-control">
+
+    <button type="submit" class="btn btn-primary mt-4 w-100">Enviar REST</button>
+  </form>
+</div>
+</body>
+</html>
