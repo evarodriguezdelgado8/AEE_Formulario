@@ -28,165 +28,130 @@ Contenido del proyecto
             
             <form action="../back/procesar_evento.php" method="POST" enctype="multipart/form-data">
 
-El archivo procesar_evento.php:
+        El archivo procesar_evento.php:
 
-Recupera todos los campos usando $_POST.
+            Recupera todos los campos usando $_POST.
 
-Valida datos esenciales (email, contraseña, aceptación de términos…).
+            Valida datos esenciales (email, contraseña, aceptación de términos…).
 
-Muestra un recibo formateado con Bootstrap usando echo.
+            Muestra un recibo formateado con Bootstrap usando echo.
 
-Incluye validación HTML5 (required, type=email, etc.).
+            Incluye validación HTML5 (required, type=email, etc.).
 
-Incluye estilos de Bootstrap (form-control, form-group, etc.).
+            Incluye estilos de Bootstrap (form-control, form-group, etc.).
 
-✔ Funcionalidades obligatorias incluidas
+        Funcionalidades obligatorias incluidas
 
-Campos obligatorios validados con Bootstrap y HTML5
+            Campos obligatorios validados con Bootstrap y HTML5
 
-Métodos POST
+            Métodos POST
 
-Arrays (checkbox de comidas)
+            Arrays (checkbox de comidas)
 
-Uso de decisiones (if)
+            Uso de decisiones (if)
 
-Renderizado final de datos enviados
+            Renderizado final de datos enviados
 
-Comentarios en el código
+            Comentarios en el código
 
-Adjuntar archivo (input type="file")
+            Adjuntar archivo (input type="file")
 
-Diseño completo y organizado por secciones
+            Diseño completo y organizado por secciones
 
-🟩 FORMA 2 — Envío mediante llamadas REST (Fetch POST / JSON)
-📁 Estructura
-forma2/
- ├── front/
- │    ├── index_rest.html
- │    ├── script.js
- └── back/
-      └── api_evento.php
+    FORMA 2 — Envío mediante llamadas REST (Fetch POST / JSON)
+    Estructura
 
-📘 Descripción
+        forma2/
+        ├── front/
+        │    ├── index_rest.html
+        │    ├── script.js
+        └── back/
+            └── api_evento.php
 
-En esta versión se sustituye el envío clásico del formulario por una llamada REST que envía los datos en formato JSON a un endpoint PHP.
+    Descripción
 
-El formulario no utiliza action ni method:
+        En esta versión se sustituye el envío clásico del formulario por una llamada REST que envía los datos en formato JSON a un endpoint PHP.
 
-<form id="form-evento">
+        El formulario no utiliza action ni method:
 
+        <form id="form-evento">
 
-Toda la lógica se realiza desde script.js:
 
-✔ Funcionamiento REST
+    Toda la lógica se realiza desde script.js:
 
-Se captura el evento submit.
+    Funcionamiento REST
 
-Se usa preventDefault() para evitar recargar la página.
+        Se captura el evento submit.
 
-Se recopilan todos los datos del formulario.
+        Se usa preventDefault() para evitar recargar la página.
 
-Se envían mediante:
+        Se recopilan todos los datos del formulario.
 
-fetch("../back/api_evento.php", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(datos)
-});
+        Se envían mediante:
 
-✔ Backend (API REST)
+            fetch("../back/api_evento.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(datos)
+            });
 
-El archivo api_evento.php:
+    Backend (API REST)
 
-Detecta si la petición es POST.
+        El archivo api_evento.php:
 
-Recibe JSON usando php://input.
+        Detecta si la petición es POST.
 
-Decodifica con json_decode().
+        Recibe JSON usando php://input.
 
-Valida campos (email, contraseñas…).
+        Decodifica con json_decode().
 
-Responde en JSON:
+        Valida campos (email, contraseñas…).
 
-{
-  "mensaje": "Registro realizado correctamente",
-  "usuario": "valor",
-  "entrada": "valor"
-}
+        Responde en JSON:
 
-✔ Resultado
+            {
+            "mensaje": "Registro realizado correctamente",
+            "usuario": "valor",
+            "entrada": "valor"
+            }
 
-El usuario recibe un mensaje vía:
+    Resultado
 
-alert(resultado.mensaje);
+        El usuario recibe un mensaje vía:
 
-🛠 Tecnologías utilizadas
+        alert(resultado.mensaje);
 
-HTML5
 
-CSS3
+    Validación HTML y validación en backend
 
-Bootstrap 5.3
+    Cómo ejecutar el proyecto
+        Forma 1 (POST tradicional)
 
-JavaScript (Fetch API)
+            Copiar 1Forma a tu servidor local XAMPP
 
-PHP 8 (compatible 7.x)
+            Abrir en navegador:
 
-JSON
+            http://localhost/AEE_Formulario/1forma/front/index.html
 
-Validación HTML y validación en backend
+            Enviar formulario → ver recibo generado en procesar_evento.php.
 
-🚀 Cómo ejecutar el proyecto
-▶ Forma 1 (POST tradicional)
+        Forma 2 (REST POST)
 
-Copiar forma1 a tu servidor local (XAMPP, Laragon…).
+            Copiar 2Forma dentro del servidor local.
 
-Abrir en navegador:
+            Importante: mantener las carpetas front y back.
 
-http://localhost/forma1/index.html
+            Abrir en navegador:
 
+            http://localhost/AEE_Formulario/2forma/front/index_rest.html
 
-Enviar formulario → ver recibo generado en procesar_evento.php.
+            Enviar formulario con REST → aparecerá un alert con respuesta de la API.
 
-▶ Forma 2 (REST POST)
 
-Copiar forma2 dentro del servidor local.
+    Conclusión
 
-Importante: mantener las carpetas front y back.
+        La actividad incluye dos formas de procesar el formulario:
 
-Abrir en navegador:
+        FORMA 1: envío tradicional por POST → procesar y mostrar recibo.
 
-http://localhost/forma2/front/index_rest.html
-
-
-Enviar formulario con REST → aparecerá un alert con respuesta de la API.
-
-📝 Competencias trabajadas
-
-Programación estructurada
-
-Tomas de decisión (if / else)
-
-Bucles y arrays
-
-Validación cliente/servidor
-
-Creación de formularios web completos
-
-Uso de métodos POST (clásico y REST)
-
-Interacción con el usuario mediante DOM y JS
-
-Manejo de JSON
-
-Integración front–back (REST)
-
-✔ Conclusión
-
-La actividad incluye dos formas de procesar el formulario:
-
-FORMA 1: envío tradicional por POST → procesar y mostrar recibo.
-
-FORMA 2: envío mediante REST con JSON → mostrar respuesta dinámica.
-
-Ambas cumplen los requisitos marcados por el profesor y demuestran el dominio del flujo cliente–servidor.
+        FORMA 2: envío mediante REST con JSON → mostrar respuesta dinámica.
