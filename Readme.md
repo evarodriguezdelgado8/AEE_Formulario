@@ -1,36 +1,32 @@
 Información de la actividad
 
-Módulo: DWEC – Desarrollo Web en Entorno Cliente
+    Módulo: DWEC – Desarrollo Web en Entorno Cliente
+    Profesor: Carlos Basulto Pardo
+    Curso: Desarrollo de Aplicaciones Multiplataforma/Web
+    RA3 - AEE: Creación de un formulario completo para una aplicación de registro de eventos
 
-Profesor: Carlos Basulto Pardo
+    Objetivo: Crear un formulario HTML validado con Bootstrap, y procesarlo de dos formas:
 
-Curso: Desarrollo de Aplicaciones Multiplataforma/Web
+        1. Método tradicional enviando por POST a un archivo PHP.
+        2. Método REST enviando JSON mediante fetch() a un endpoint PHP (API).
 
-RA3 - AEE: Creación de un formulario completo para una aplicación de registro de eventos
+Contenido del proyecto
 
-Objetivo: Crear un formulario HTML validado con Bootstrap, y procesarlo de dos formas:
+    El proyecto está dividido en dos implementaciones, cada una en su propia carpeta.
 
-Método tradicional enviando por POST a un archivo PHP.
+    FORMA 1 — Envío tradicional por POST
+    Estructura
 
-Método REST enviando JSON mediante fetch() a un endpoint PHP (API).
+        1Forma/
+        ├── front/
+        │    ├── index.html
+        └── back/
+            └── procesar_evento.php
 
-🧩 Contenido del proyecto
-
-El proyecto está dividido en dos implementaciones, cada una en su propia carpeta.
-
-🟦 FORMA 1 — Envío tradicional por POST
-📁 Estructura
-forma1/
- ├── index.html
- ├── procesar_evento.php
- └── css / js / bootstrap (opcional)
-
-📘 Descripción
-
-En esta primera versión el formulario se envía de manera tradicional usando:
-
-<form method="POST" action="procesar_evento.php">
-
+    Descripción
+        En esta primera versión el formulario se envía de manera tradicional usando:
+            
+            <form action="../back/procesar_evento.php" method="POST" enctype="multipart/form-data">
 
 El archivo procesar_evento.php:
 
